@@ -1,22 +1,29 @@
-import bodyParser from 'body-parser';
-import express from 'express';
-import morgan from 'morgan';
-import cors from 'cors';
+// Importando Express e middlewares
+const express = require( 'express' );
+const bodyParser = require( 'body-parser' );
+const morgan = require( 'morgan' );
+const cors = require( 'cors' );
 
-import databaseConfig from './config/database';
-import routerConfig from './config/routes';
-import dotenv from 'dotenv'
+// Importando configurações de DB, rotas e variáveis de ambiente
+const configDatabase = require( './src/config/database' );
+const configRouter = require( './src/config/routes' );
+require( 'dotenv' ).config()
 
+// Criando singleton do servidor Express
 const app = express();
 
-// middlewares do express
-app.use(cors({origin:['http://localhost:3000']}))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(morgan('combined'));
+// Usando middlewares do Express
+app.use( cors( { origin: [ 'http://localhost:3000' ] } ) )
+app.use( bodyParser.json() )
+app.use( bodyParser.urlencoded( { extended: true } ) );
+app.use( morgan( 'combined' ) );
 
-//Demais configurações
-routerConfig.config(app);
-databaseConfig.config();
-dotenv.config()
-require('mongoose').Promise = global.Promise
+// Executando configurações de DB e rotas
+configDatabase()
+require( 'mongoose' ).Promise = global.Promise
+configRouter( app )
+
+// Colocando serivodor para rodar na porta 3001
+app.listen( 3001, () => {
+  console.log( "Servidor iniciado com sucesso!" )
+} )

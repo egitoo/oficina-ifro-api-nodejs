@@ -4,8 +4,7 @@
   "description": "API utilizada na oficina para trabalhar com Node.js e MongoDB.",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "start": "npm run build && nodemon dist/index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -32,9 +31,6 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.1",
-    "@types/mongoose": "^5.5.20",
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "rimraf": "^3.0.0"
+    "@types/mongoose": "^5.5.20"
   }
 }
