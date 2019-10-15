@@ -1,4 +1,4 @@
-const AlunoService = require( "../service/AlunoService" );
+const AlunoService = require( "../service/aluno" );
 const express = require( "express" );
 
 const router = express.Router();

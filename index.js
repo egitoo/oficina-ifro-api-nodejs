@@ -6,7 +6,7 @@ const cors = require( 'cors' );
 
 // Importando configurações de DB, rotas e variáveis de ambiente
 const configDatabase = require( './src/config/database' );
-const configRouter = require( './src/config/routes' );
+const configRouter = require( './src/config/route' );
 require( 'dotenv' ).config()
 
 // Criando singleton do servidor Express
