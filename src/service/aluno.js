@@ -1,6 +1,6 @@
 const AlunoCRUDModel = require( '../model/aluno' )
 
-class AlunoService {
+module.exports = {
   async inserir( req, res ) {
     // preenchendo model
     let model = new AlunoCRUDModel( req.body );
@@ -23,7 +23,7 @@ class AlunoService {
     } catch ( error ) {
       return res.status( 500 ).json( error );
     }
-  }
+  },
 
   async alterar( req, res ) {
     if ( !req.params.id ) {
@@ -56,7 +56,7 @@ class AlunoService {
     } catch ( error ) {
       return res.status( 500 ).json( error );
     }
-  }
+  },
 
   async remover( req, res ) {
     if ( !req.params.id ) {
@@ -73,7 +73,7 @@ class AlunoService {
     } catch ( error ) {
       return res.status( 500 ).json( { error } );
     }
-  }
+  },
 
   async buscarTodos( req, res ) {
     try {
@@ -82,7 +82,7 @@ class AlunoService {
     } catch ( error ) {
       return res.status( 500 ).json( error )
     }
-  }
+  },
 
   async buscarUm( req, res ) {
     try {
@@ -102,5 +102,3 @@ class AlunoService {
     }
   }
 }
-
-module.exports = AlunoService;
