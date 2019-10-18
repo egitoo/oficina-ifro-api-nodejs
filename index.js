@@ -24,6 +24,6 @@ require( 'mongoose' ).Promise = global.Promise
 configRouter( app )
 
 // Colocando servidor para rodar na porta 3001
-app.listen( 3001, () => {
+app.listen( 3000, () => {
   console.log( "Servidor iniciado com sucesso!" )
 } )
